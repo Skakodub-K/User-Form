@@ -1,69 +1,29 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# User Management System
 
-Currently, two official plugins are available:
+## Project Overview
+A web application for managing user accounts with CRUD functionality and authentication.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<center><img width="364" height="309" alt="Image" src="https://github.com/user-attachments/assets/590c898d-74db-4b51-b5f3-c60506e33969" /></center>
 
-## Expanding the ESLint configuration
+## Features
+- 📋 User listing table view
+- ➕ Create new users
+- ✏️ Edit existing users (with field restrictions)
+- 🔒 Login authentication
+- 🧭 Persistent navigation (except login page)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Pages Structure
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Path                | Description                                  | Components               |
+|---------------------|----------------------------------------------|--------------------------|
+| `/`                 | Main page with users table                   | Table, Nav, Header       |
+| `/user/create`      | User creation form                           | Form, Nav, Header        |
+| `/user/:id`         | User editing form (pre-filled)               | Form, Nav, Header        |
+| `/login`            | Authentication page                          | Login Form               |
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Start
+```bash
+npm install
+npm run dev
 ```
